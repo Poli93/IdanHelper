@@ -3,7 +3,6 @@
 -- 3.2 Debug Tools:
 -- /fstack /framestack [showhidden]
 -- /etrace /eventtrace [start/stop]
--- frame by mouse location:
 -- /run local f = GetMouseFocus(); if f then DEFAULT_CHAT_FRAME:AddMessage(f:GetName()) end
 -- /run print(GetCursorPosition())
 -- /run local t,c,u,k=0,0,UnitExists("target")and"target"or"player"for i=1,18 do k=GetInventoryItemLink(u,i)if i~=4 and k then t=t+select(4,GetItemInfo(k))c=c+1 end end c=c>0 and print(t/c)
@@ -24,8 +23,6 @@
 -- /script SetCVar("nameplateSelectedAlpha",0);
 -- /dump threatshownumeric
 
--- /run MainMenuBarLeftEndCap:Hide(); MainMenuBarRightEndCap:Hide()
--- Hide actionbar gryphons, since they are not necessary whatsoever and simply reduce frame rate (insignificant reduction but im still an FPS junkie)
 local addon, IdanHelper = ...
 local IHL_TEXT = "Idan|cffffffffHelper |r"
 local IHL_VERSION = "1.0"
@@ -69,55 +66,6 @@ end)
 --DBM.Bars:CreateBar(30, "welcometoWOW") 
 --"Interface\Icons\Spell_Holy_BorrowedTime"
 
---[[
--- Custom slash commands to make my life easier or more challenging :D
---SlashCmdList_AddSlashCommand("RELOADUI",ReloadUI,"/rl")
+SLASH_IDANHELPRELOAD1 = "/rl";
+SlashCmdList["IDANHELPRELOAD"] = function(msg, self) ReloadUI(); end
 
-local myname = "Idan";
-local testmsg = " test";
-
-SLASH_HELLOWORLD1, SLASH_HELLOWORLD2 = '/hiw', '/hellow'; -- 3.
-function SlashCmdList.HELLOWORLD(msg, editbox) -- 4.
- print("Hello, World!");
- print(myname);
- print(myname .. testmsg);
-end
-
-local function MyAddonCommands(msg, editbox)
-  if msg == 'bye' then
-    print('Goodbye, World!')
-  else
-    print("Hello, World!")
-  end
-end
-
-SLASH_HELLOWORLD1, SLASH_HELLOWORLD2 = '/hiw', '/hellow'
-
-SlashCmdList["HELLOWORLD"] = MyAddonCommands   -- add /hiw and /hellow to command list
-
-
---SLASH_HELLOWWORLD1, SLASH_HELLOWWORLD2 = '/hiw2', '/hellow2'
-SLASH_LOADFUNC1 = '/loadfunc'
-SlashCmdList["LOADFUNC"] = IDANCOMMANDS -- adds
-local function IDANCOMMANDS(msg, editbox)
-	if msg == 'byexy' then
-		print("Goodbye World!")
-	else
-		print("Hello World!")
-	end
-end
-
-
-
-local function TESTCMDS(msg, editbox)
-	ReloadUI();
-end
-
-function testcmdstwo(msg, editbox)
-	ReloadUI();
-end
-
-function SlashCmdList.testcmdsthree(msg, editbox)
-	ReloadUI();
-end
---]]
