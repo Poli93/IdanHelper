@@ -1,0 +1,14 @@
+﻿## Interface: 70305
+## Title: Idan|cffffffffHelper |r
+## Notes: set of QoL UI scripts
+## Author: Idan
+## SavedVariables: IdanCCDB
+## Version: 0.4
+
+IdanUI.lua
+IdanPortraits.lua
+IdanCombat.lua
+## BuffMover.lua
+## IdanRPF.lua
+## RunesCT.lua
+## ComboCT.lua
